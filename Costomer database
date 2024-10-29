@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+struct customer
+{
+    char gender;
+    int age;
+    float pur_amount;
+    long int mob;
+    int day,month,year;
+};
+
+
+int main()
+{
+  int n;
+  printf("Enter the total no customers: ");
+  scanf("%d",&n);
+  struct customer cus_details[n];
+  printf("Enter the customer details  in the format of\ndate(d/m/y):Gender(M/F):Age:Mobileno:Purchased amount:");
+  for(int i=0;i<n;i++)
+  {
+
+      scanf("%d %d %d",&cus_details[i].day,&cus_details[i].month,&cus_details[i].year);
+      scanf(" %c %d %ld %f",&cus_details[i].gender,&cus_details[i].age,&cus_details[i].mob,&cus_details[i].pur_amount);
+  }
+  float min_amount;
+  scanf("%f",&min_amount);
+  for(int i=0;i<n;i++)
+  {
+      if(cus_details[i].pur_amount>=min_amount)
+      {
+          printf("\ncustomer %d\n",i);
+        printf("Gender:%c Age:%d Mob:%ld date:%d %d %d\n",cus_details[i].gender,cus_details[i].age,cus_details[i].mob,cus_details[i].day,cus_details[i].month,cus_details[i].year);
+
+      }
+  }
+}
